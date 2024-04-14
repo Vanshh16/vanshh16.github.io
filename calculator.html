@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <script
+      src="https://kit.fontawesome.com/4cd311d9a4.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Calculator</title>
+  </head>
+  <body>
+    <header>Tax Calculator</header>
+    <br />
+    <br />
+    <section>
+      <form name="myForm" onsubmit="return validateForm()" method="post">
+        <label
+          >Enter Gross Annual Income:
+          <div class="tooltip">
+            <i class="fa-regular fa-circle-question"></i>
+            <span class="tooltiptext"
+              >Gross annual salary is your total salary before
+              anydeductions</span
+            >
+          </div>
+        </label>
+        <br /><br />
+        <label>Rs. </label>
+        <input id="annual" name="annual" onchange="handleChange(this.value, this)" required placeholder="Enter Gross Annual Income" />
+        <div class="tooltip hidden" id="annual-error">
+            <i class="fa-sharp fa-regular fa-circle-exclamation"></i>
+            <span class="tooltiptext"
+              >Please enter numbers only</span
+            >
+          </div>
+        <br /><br />
+        <label
+          >Enter Extra Income:
+          <div class="tooltip">
+            <i class="fa-regular fa-circle-question"></i>
+            <span class="tooltiptext"
+              >Gross annual salary is your total salary before
+              anydeductions</span
+            >
+          </div>
+        </label>
+        <br /><br />
+        <label>Rs. </label>
+        <input id="extra" placeholder="Enter Extra Income" name="extra" required onchange="handleChange(this.value, this)"/>
+        <div class="tooltip hidden" id="extra-error">
+            <i class="fa-light fa-triangle-exclamation"></i>
+            <span class="tooltiptext"
+              >Please enter numbers only</span
+            >
+          </div>
+           <br /><br />
+        <label
+          >Enter Age Group
+          <div class="tooltip">
+            <i class="fa-regular fa-circle-question"></i>
+            <span class="tooltiptext"
+              >Gross annual salary is your total salary before any
+              deductions</span
+            >
+          </div>
+        </label>
+        <br /><br />
+        <select
+          class="form-select"
+          id="age"
+          name="Default select example"
+          required
+        >
+          <option selected>Select age group</option>
+          <option value="1">Lesser than 40</option>
+          <option value="2">Between 40 and 60</option>
+          <option value="3">Greater than 60</option>
+        </select>
+        <br /><br />
+        <label>
+          Enter Total Applicable Deductions
+          <div class="tooltip">
+            <i class="fa-regular fa-circle-question"></i>
+            <span class="tooltiptext"
+              >Gross annual salary is your total salary before
+              anydeductions</span
+            >
+          </div>
+        </label>
+        <br /><br />
+        <label>Rs. </label
+        ><input
+          id="deduction"
+          placeholder="Enter Total Applicable Deductions"
+          required
+          onchange="handleChange(this.value, this)"
+        />
+        <div class="tooltip hidden" id="deduction-error">
+            <i class="fa-thin fa-circle-exclamation"></i>
+            <span class="tooltiptext"
+              >Please enter numbers only</span
+            >
+          </div>
+        <br /><br />
+        <button type="button" name="calculate" id="calculate">Calculate</button>
+        <br /><br />
+      </form>
+    </section>
+    <section class="hidden result" id="result">
+        <h1>Your overall income will be</h1>
+        <br />
+        <h2 id="result-amount">0000</h2>
+        <br />
+        <p>after tax deductions</p>
+        <button type="button" class="close-button" name="close" id="close">Close</button>
+    </section>
+
+    <script src="index.js"></script>
+  </body>
+</html>
